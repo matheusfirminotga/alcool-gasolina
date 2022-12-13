@@ -124,61 +124,60 @@ class _BestFuelState extends State<BestFuel> {
                   ),
                 ),
                 Padding(padding: EdgeInsets.only(top: 25, bottom: 25)),
-                Visibility(
-                  visible: controller.textResultado.value.isNotEmpty,
-                  replacement: Container(),
-                  child: Container(
-                    margin: EdgeInsets.only(left: 40, right: 40),
-                    padding: EdgeInsets.fromLTRB(2, 30, 2, 30),
-                    width: double.infinity,
-                    //height: 100,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: ValueListenableBuilder(
-                      valueListenable: controller.textResultado,
-                      builder: (_, String value, __) {
-                        return Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            RichText(
-                              text: TextSpan(
-                                text: 'Abasteça\r',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 16,
-                                ),
-                                children: [
-                                  TextSpan(
-                                    text: '$value',
-                                    style: TextStyle(
-                                      color: Color(0xFF61BC52),
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 16,
-                                    ),
+                ValueListenableBuilder(
+                    valueListenable: controller.textResultado,
+                    builder: (_, String value, __) {
+                      return Visibility(
+                        visible: value.isNotEmpty,
+                        replacement: Container(),
+                        child: Container(
+                          margin: EdgeInsets.only(left: 40, right: 40),
+                          padding: EdgeInsets.fromLTRB(2, 30, 2, 30),
+                          width: double.infinity,
+                          //height: 100,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              RichText(
+                                text: TextSpan(
+                                  text: 'Abasteça\r',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 16,
                                   ),
-                                ],
+                                  children: [
+                                    TextSpan(
+                                      text: '$value',
+                                      style: TextStyle(
+                                        color: Color(0xFF61BC52),
+                                        fontFamily: 'Poppins',
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                            Padding(padding: EdgeInsets.all(8)),
-                            Text(
-                              'Neste momento é melhor abastecer com $value',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize: 13,
-                                fontFamily: 'Poppins',
-                              ),
-                            )
-                          ],
-                        );
-                      },
-                    ),
-                  ),
-                ),
+                              Padding(padding: EdgeInsets.all(8)),
+                              Text(
+                                'Neste momento é melhor abastecer com $value',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  fontFamily: 'Poppins',
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      );
+                    })
               ],
             ),
           ),
