@@ -1,3 +1,4 @@
+import 'package:alcool_gasolina/views/best_fuel.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -21,7 +22,14 @@ class HomeView extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              debugPrint('alcool ou gasolina');
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (builder) {
+                    return BestFuel();
+                  },
+                ),
+              );
             },
             child: Container(
               margin: EdgeInsets.only(top: 5, left: 10, bottom: 5, right: 5),
