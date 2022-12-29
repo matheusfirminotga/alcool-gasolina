@@ -1,4 +1,5 @@
 import 'package:alcool_gasolina/views/best_fuel.dart';
+import 'package:alcool_gasolina/views/calculate_consumption.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -63,7 +64,14 @@ class HomeView extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              debugPrint('calcular media');
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (builder) {
+                    return CalculateConsumption();
+                  },
+                ),
+              );
             },
             child: Container(
               margin: EdgeInsets.only(left: 10, bottom: 5, right: 5),
@@ -82,7 +90,7 @@ class HomeView extends StatelessWidget {
                       color: Color(0xFF61BC52).withOpacity(0.10),
                     ),
                     Text(
-                      'Calcular Média',
+                      'Calcular Consumo',
                       style: TextStyle(
                         color: Color(0xFF61BC52),
                         fontSize: 20,
